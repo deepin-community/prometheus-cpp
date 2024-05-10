@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+set -eu
+
+cmake -S /usr/share/doc/prometheus-cpp-dev/examples -B _build
+cmake --build _build

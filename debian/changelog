@@ -1,5 +1,32 @@
-template-repository (1.0-1) unstable; urgency=medium
+prometheus-cpp (1.0.2-2) unstable; urgency=medium
 
-  * Initial release
+  * cleanup doygen output (Closes: #1048205)
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Gregor Jasny <gjasny@googlemail.com>  Wed, 16 Aug 2023 08:46:09 +0200
+
+prometheus-cpp (1.0.2-1) unstable; urgency=medium
+
+  * Import latest 1.0.x upstream release
+
+ -- Gregor Jasny <gjasny@googlemail.com>  Mon, 07 Aug 2023 09:19:23 +0200
+
+prometheus-cpp (1.0.1-2) unstable; urgency=high
+
+  * Build Google Test with C++14 (Closes: #1041131)
+  * Bumped standards to version 4.6.2 (no changes needed)
+
+ -- Gregor Jasny <gjasny@googlemail.com>  Sun, 06 Aug 2023 17:58:22 +0200
+
+prometheus-cpp (1.0.1-1) unstable; urgency=medium
+
+  * Import latest 1.0.0 upstream release
+  * Bump standards to version 4.6.1 (no changes needed)
+  * Update Debian copyright file
+
+ -- Gregor Jasny <gjasny@googlemail.com>  Sun, 22 May 2022 12:54:27 +0200
+
+prometheus-cpp (1.0.0-1) unstable; urgency=medium
+
+  * Initial release (Closes: #917817)
+
+ -- Gregor Jasny <gjasny@googlemail.com>  Fri, 31 Dec 2021 12:36:31 +0100
