@@ -1,0 +1,10 @@
+Document: prometheus-cpp
+Title: prometheus-cpp API reference
+Author: The prometheus-cpp contributors
+Abstract: This manual describes what prometheus-cpp is
+ and how it can be used to collect metrics.
+Section: Programming/C++
+
+Format: HTML
+Index: /usr/share/doc/prometheus-cpp-dev/html/index.html
+Files: /usr/share/doc/prometheus-cpp-dev/html/*.html

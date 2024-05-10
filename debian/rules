@@ -1,4 +1,19 @@
 #!/usr/bin/make -f
 
+# see FEATURE AREAS in dpkg-buildflags(1)
+export DEB_BUILD_MAINT_OPTIONS=hardening=+all reproducible=+all future=+lfs
+
+CPPFLAGS+=-DNDEBUG
+
 %:
-	dh $@
+	dh $@ --buildsystem=cmake+ninja
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+	-DBUILD_SHARED_LIBS=ON \
+	-DUSE_THIRDPARTY_LIBRARIES=OFF
+
+override_dh_auto_build:
+	dh_auto_build
+	cd doc && doxygen && rm -f html/*.md5
+	find doc/html -name '*.html' -type f | xargs sed -i -e "s,$(CURDIR),,g"

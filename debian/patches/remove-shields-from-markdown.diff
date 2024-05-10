@@ -1,0 +1,28 @@
+Subject: Remove shileds from markdown file to preserve user privacy
+Author: Gregor Jasny <gjasny@googlemail.com>
+Forwarded: not-needed
+
+--- a/README.md
++++ b/README.md
+@@ -1,10 +1,5 @@
+ # Prometheus Client Library for Modern C++
+ 
+-[![CI Status](https://github.com/jupp0r/prometheus-cpp/workflows/Continuous%20Integration/badge.svg)](https://github.com/jupp0r/prometheus-cpp/actions?workflow=Continuous+Integration)
+-[![Travis Status](https://travis-ci.org/jupp0r/prometheus-cpp.svg?branch=master)](https://travis-ci.org/jupp0r/prometheus-cpp)
+-[![Coverage Status](https://coveralls.io/repos/github/jupp0r/prometheus-cpp/badge.svg?branch=master)](https://coveralls.io/github/jupp0r/prometheus-cpp?branch=master)
+-[![Coverity Scan](https://scan.coverity.com/projects/10567/badge.svg)](https://scan.coverity.com/projects/jupp0r-prometheus-cpp)
+-
+ This library aims to enable
+ [Metrics-Driven Development](https://sookocheff.com/post/mdd/mdd/) for
+ C++ services. It implements the
+--- a/cmake/googlemock-3rdparty-config.cmake
++++ b/cmake/googlemock-3rdparty-config.cmake
+@@ -8,6 +8,8 @@
+   ${_IMPORT_PREFIX}/googlemock/src/gmock_main.cc
+ )
+ 
++target_compile_features(gmock_main PUBLIC cxx_std_14)
++
+ target_include_directories(gmock_main SYSTEM
+   PUBLIC
+     ${_IMPORT_PREFIX}/googletest/include

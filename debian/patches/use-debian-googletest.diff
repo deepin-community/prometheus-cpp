@@ -1,0 +1,32 @@
+Subject: Use Debian packaged GoogleTest
+Author: Gregor Jasny <gjasny@googlemail.com>
+Forwarded: not-needed
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -58,12 +58,12 @@
+ include(CheckAtomic)
+ 
+ if(ENABLE_TESTING)
+-  if(USE_THIRDPARTY_LIBRARIES)
++  #if(USE_THIRDPARTY_LIBRARIES)
+     find_package(googlemock-3rdparty CONFIG REQUIRED)
+-  else()
+-    find_package(GTest 1.8.1 CONFIG REQUIRED)
+-  endif()
+-  find_package(benchmark CONFIG)
++  #else()
++  #  find_package(GTest 1.8.1 CONFIG REQUIRED)
++  #endif()
++  #find_package(benchmark CONFIG)
+   enable_testing()
+ endif()
+ 
+--- a/cmake/googlemock-3rdparty-config.cmake
++++ b/cmake/googlemock-3rdparty-config.cmake
+@@ -1,4 +1,4 @@
+-get_filename_component(_IMPORT_PREFIX "${CMAKE_CURRENT_LIST_DIR}/../3rdparty/googletest/" ABSOLUTE)
++set(_IMPORT_PREFIX /usr/src/googletest)
+ 
+ find_package(Threads QUIET)
+ 

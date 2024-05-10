@@ -1,15 +1,75 @@
-Source: template-repository
-Section: unknown
+Source: prometheus-cpp
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Gregor Jasny <gjasny@googlemail.com>
+Build-Depends: civetweb,
+               cmake,
+               debhelper-compat (= 13),
+               doxygen,
+               googletest,
+               graphviz,
+               libcivetweb-dev,
+               libcurl4-openssl-dev,
+               ninja-build,
+               zlib1g-dev
+Standards-Version: 4.6.2
+Section: libs
+Homepage: https://github.com/jupp0r/prometheus-cpp
+Vcs-Browser: https://salsa.debian.org/debian/prometheus-cpp
+Vcs-Git: https://salsa.debian.org/debian/prometheus-cpp.git
+Rules-Requires-Root: no
 
-Package: template-repository
+Package: prometheus-cpp-dev
+Section: libdevel
 Architecture: any
+Multi-Arch: same
+Depends: civetweb,
+         libcivetweb-dev,
+         libcurl4-openssl-dev,
+         libprometheus-cpp-core1.0 (= ${binary:Version}),
+         libprometheus-cpp-push1.0 (= ${binary:Version}),
+         libprometheus-cpp-pull1.0 (= ${binary:Version}),
+         zlib1g-dev,
+         ${misc:Depends}
+Description: Prometheus Client Library for Modern C++ (development files)
+ This library aims to enable Metrics-Driven Development for C++ services.
+ It implements the Prometheus Data Model, a powerful abstraction on which
+ to collect and expose metrics.
+ .
+ This package contains the development files.
+
+Package: libprometheus-cpp-core1.0
+Architecture: any
+Multi-Arch: same
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Description: Prometheus Client Library for Modern C++ (core metrics)
+ This library aims to enable Metrics-Driven Development for C++ services.
+ It implements the Prometheus Data Model, a powerful abstraction on which
+ to collect and expose metrics.
+ .
+ This package contains the metric primitives.
+
+Package: libprometheus-cpp-pull1.0
+Architecture: any
+Multi-Arch: same
+Depends: libprometheus-cpp-core1.0 (= ${binary:Version}),
+         ${shlibs:Depends},
+         ${misc:Depends}
+Description: Prometheus Client Library for Modern C++ (pull support)
+ This library aims to enable Metrics-Driven Development for C++ services.
+ It implements the Prometheus Data Model, a powerful abstraction on which
+ to collect and expose metrics.
+ .
+ This package contains the regular pull support.
+
+Package: libprometheus-cpp-push1.0
+Architecture: any
+Multi-Arch: same
+Depends: libprometheus-cpp-core1.0 (= ${binary:Version}),
+         ${shlibs:Depends},
+         ${misc:Depends}
+Description: Prometheus Client Library for Modern C++ (push gateway support)
+ This library aims to enable Metrics-Driven Development for C++ services.
+ It implements the Prometheus Data Model, a powerful abstraction on which
+ to collect and expose metrics.
+ .
+ This package contains the push-gateway support.
